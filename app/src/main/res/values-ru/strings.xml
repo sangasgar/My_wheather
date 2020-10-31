@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Прогноз погоды</string>
-    <string name="hello_world">-9</string>
+    <string name="hello_world">+10</string>
     <string name="City">Москва</string>
     <string name="textview">Москва</string>
+    <string name="button">Выбор города</string>
+    <string name="choosecity">Выберите город</string>
+    <string name="enter">Выбор</string>
 </resources>

@@ -12,7 +12,11 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
+    private static final String EXTRA_MESSAGE = "";
     private static String city = "";
+    private static String[] cityWord = {"МОСКВА","ЕРЕВАН","САНКТ-ПЕТЕРБУРГ"};
+    private static String[] temprathure = {"+10","+20","+8"};
+
 
 
     @Override
@@ -25,18 +29,37 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-    }
+        final TextView viewText = (TextView) findViewById(R.id.City);
+        Intent intent = getIntent();
+        String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+        viewText.setText(message);
+        final TextView temp = (TextView) findViewById(R.id.temprathure);
 
+        try {
+            if(message.equals(cityWord[0])) {
+                temp.setText(temprathure[0]);
+            } else if (message.equals(cityWord[1])) {
+                temp.setText(temprathure[1]);
+            } else if (message.equals(cityWord[2])) {
+                temp.setText(temprathure[2]);
+            } else  {
+                temp.setText(temprathure[0]);
+            }
+        } catch (Exception e) {
+            viewText.setText(cityWord[0]);
+            e.printStackTrace();
+        }
+    }
 
 
     public void on_click_button1(View view) {
-        startActivity(new Intent(this,ActivityB.class));
+        Intent intent = new Intent(this, ActivityB.class);
+        startActivity(intent);
         setContentView(R.layout.activity_main);
-        final TextView viewText = (TextView) findViewById(R.id.temprathure);
-        System.out.println("Работает");
-        viewText.setText("Нижний");
         Log.d(TAG, "Кнопка работает");
         Toast.makeText(this,"Работает кнопка 1",Toast.LENGTH_SHORT).show();
 
+
     }
+
 }
