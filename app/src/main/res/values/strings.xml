@@ -6,4 +6,6 @@
     <string name="button">Choose city</string>
     <string name="choosecity">Choose City</string>
     <string name="enter">Enter</string>
+    <string name="enter_url">Enter url</string>
+    <string name="go">GO</string>
 </resources>

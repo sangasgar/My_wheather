@@ -4,10 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -61,6 +64,17 @@ public class MainActivity extends AppCompatActivity {
             viewText.setText(cityWord[0]);
             e.printStackTrace();
         }
+        Button go = (Button) findViewById(R.id.GO);
+        go.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EditText text = (EditText) findViewById(R.id.urlInput);
+                String urlText =  text.getText().toString();
+                Uri url = Uri.parse(urlText);
+                Intent intent = new Intent(Intent.ACTION_VIEW, url);
+                startActivity(intent);
+            }
+        });
     }
 
 
