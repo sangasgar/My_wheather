@@ -9,4 +9,6 @@
     <string name="enter">Выбор</string>
     <string name="enter_url">Введите ссылку</string>
     <string name="go">Вперед</string>
+    <string name="send">Send</string>
+    <string name="message">Message</string>
 </resources>

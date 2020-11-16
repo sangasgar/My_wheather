@@ -2,6 +2,8 @@ package ru.atpv.mywheather;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -17,7 +19,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
-    private static final String EXTRA_MESSAGE = "";
+    private static final String EXTRA_MESSAGE = "SMS";
     private static String city = "";
     private static String[] cityWord = {"МОСКВА","ЕРЕВАН","САНКТ-ПЕТЕРБУРГ"};
     private static String[] temprathure = {"+10","+20","+8"};
@@ -75,16 +77,39 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
+        EditText text = (EditText) findViewById(R.id.messageSend);
+        text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-
-    public void on_click_button1(View view) {
-        Intent intent = new Intent(this, ActivityB.class);
-        startActivity(intent);
-        setContentView(R.layout.activity_main);
-        Log.d(TAG, "Кнопка работает");
-        Toast.makeText(this,"Работает кнопка 1",Toast.LENGTH_SHORT).show();
-
+            }
+        });
+        Button send = (Button) findViewById(R.id.Send);
+        send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EditText text = (EditText) findViewById(R.id.messageSend);
+                EditText phone = (EditText) findViewById(R.id.Phone);
+                String mess = text.getText().toString();
+                String phoneNum = text.getText().toString();
+                Uri uri = Uri.parse("smsto:" + phone);
+                Intent intent = new Intent(Intent.ACTION_SENDTO);
+                intent.setData(uri);
+                intent.putExtra(EXTRA_MESSAGE, phoneNum);
+                startActivity(intent);
+            }
+        });
+        Button choose = (Button) findViewById(R.id.button);
+        choose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ActivityB.class);
+                startActivity(intent);
+                setContentView(R.layout.activity_main);
+                Log.d(TAG, "Кнопка работает");
+                Toast.makeText(MainActivity.this,"Работает кнопка 1",Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 
