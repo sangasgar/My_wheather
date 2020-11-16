@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BlankFragment3">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="125dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="153dp"
+            android:layout_marginBottom="449dp"
+            android:text="@string/button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/temprathure"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/City"
+            android:layout_width="193dp"
+            android:layout_height="52dp"
+            android:layout_marginBottom="52dp"
+            android:text="@string/textview"
+            android:textAlignment="center"
+            android:textColor="#1B4080"
+            android:textDirection="ltr"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/temprathure"
+            tools:layout_editor_absoluteX="174dp"
+            tools:text="Moscow"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/temprathure"
+            android:layout_width="228dp"
+            android:layout_height="103dp"
+            android:layout_marginStart="167dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/hello_world"
+            android:textColor="#5D77AC"
+            android:textSize="90sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="110dp"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="114dp"
+            android:src="@drawable/wheather"
+            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintEnd_toStartOf="@+id/temprathure"
+            app:layout_constraintHorizontal_bias="0.432"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</FrameLayout>
